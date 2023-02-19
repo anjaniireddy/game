@@ -1,0 +1,54 @@
+import java.util.*;
+public class game 
+{
+    public static final String R = "rock";
+     public static final String P = "paper";
+     public static final String S= "scissors";
+     public static void main(String args[]) 
+    {
+      System.out.println("Enter your choice:");
+      System.out.println("rock or paper or scissors");//displaying choice
+      String playermove = playerschoice();//getting the value from functi
+      String computermove = computerschoice();//getting the value from function
+      //checking all conditions
+      if (playermove.equals(computermove))
+            System.out.println("tie");//checking if the player and computer move is same
+      else if (playermove.equals("rock"))
+        System.out.println(computermove.equals("paper") ? "computer wins": " you win !");//checking if players move is rock and computer move is paperr 
+      
+      else if (playermove.equals("paper"))
+        System.out.println(computermove.equals("scissors") ? "computer wins": "you win");//checking if players move is paper and computer move is scissors 
+         
+      else
+        System.out.println(computermove.equals("rock") ? "computer wins": "Player wins"); //checking if players move is scissorsand computer move is rock  
+    }
+    
+    
+    public static String computerschoice()
+    {
+        String computersmove;
+        Random random = new Random();
+        int n = random.nextInt(3);
+        if (n==0)
+            computersmove ="rock";
+        else if(n==1)
+            computersmove = "paper";
+        else 
+            computersmove = "scissors";
+            
+        System.out.println("Computer move is: " + computersmove);//displaying computers move
+        return computersmove;    
+    }
+    
+    public static String playerschoice()
+   {
+        Scanner in= new Scanner(System.in);
+        String a= in.next();
+        String playersmove= a.toLowerCase();
+        System.out.println("Player move is: "+ playersmove);
+     {
+            in.close();
+        }
+        return playersmove;
+    }    
+}
